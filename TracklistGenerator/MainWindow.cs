@@ -27,9 +27,15 @@ namespace TracklistGenerator
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     fileTextBox.Text = ofd.FileName;
+                    List<Track> tracklist = new List<Track>();
+
                     Task.Factory.StartNew(async () =>
                     {
-                        await ProjectFileParser.GetTracklistFromProject(fileTextBox.Text);
+                        tracklist = await ProjectFileParser.GetTracklistFromProject(fileTextBox.Text);
+                        Invoke(new MethodInvoker(delegate
+                        {
+                            tracklistDataGrid.DataSource = tracklist;
+                        }));
                     });
                 }
             }
