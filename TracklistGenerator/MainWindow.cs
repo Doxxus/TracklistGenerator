@@ -41,6 +41,34 @@ namespace TracklistGenerator
             }
         }
 
+        private void sortButton_Click(object sender, EventArgs e)
+        {
+            List<Track> tracklist = tracklistDataGrid.DataSource as List<Track>;
+            if (tracklist == null)
+            {
+                MessageBox.Show("Traklist is unavailable.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            TrackListOperations.Sort(ref tracklist);
+            tracklistDataGrid.DataSource = tracklist;
+            tracklistDataGrid.Refresh();
+        }
+
+        private void rectifyButton_Click(object sender, EventArgs e)
+        {
+            List<Track> tracklist = tracklistDataGrid.DataSource as List<Track>;
+            if (tracklist == null)
+            {
+                MessageBox.Show("Traklist is unavailable.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            TrackListOperations.CombineAllDuplicates(ref tracklist);
+            tracklistDataGrid.DataSource = tracklist;
+            tracklistDataGrid.Refresh();
+        }
+
         private void exportButton_Click(object sender, EventArgs e)
         {
 

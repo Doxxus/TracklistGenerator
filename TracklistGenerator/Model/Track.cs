@@ -4,11 +4,11 @@ namespace TracklistGenerator.Model
 {
     public class Track
     {
-        public int id { get; private set; }
-        public string artist { get; private set; }
-        public string title { get; private set; }
-        public decimal start_time { get; private set; }
-        public decimal end_time { get; private set; }
+        public int id { get; set; }
+        public string artist { get; set; }
+        public string title { get; set; }
+        public decimal start_time { get; set; }
+        public decimal end_time { get; set; }
 
         public Track()
         {
@@ -27,9 +27,15 @@ namespace TracklistGenerator.Model
             this.start_time = start_time;
             this.end_time = end_time;
         }
+
         public void ChangeId(int id)
         {
             this.id = id;
+        }
+
+        public string GetFullName()
+        {
+            return $"{artist} - {title}";
         }
     }
 }
