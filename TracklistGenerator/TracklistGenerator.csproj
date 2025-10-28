@@ -82,6 +82,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AbletonProjectConfig.cs" />
+    <Compile Include="Model\ConfigurationManager.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,5 +121,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configs\5-10-0.xml" />
+    <Content Include="Configs\5-12-0.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(ProjectDir)\Configs $(ProjectDir)$(OutDir)\Configs\ /e /C /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>
