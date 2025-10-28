@@ -37,11 +37,11 @@
             this.infoLayout = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.timeSignatureLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.tsDenominator = new System.Windows.Forms.NumericUpDown();
             this.tsSlashLabel = new System.Windows.Forms.Label();
             this.tsNumerator = new System.Windows.Forms.NumericUpDown();
             this.tempoGroupBox = new System.Windows.Forms.GroupBox();
             this.tempoUpDown = new System.Windows.Forms.NumericUpDown();
-            this.tsDenominator = new System.Windows.Forms.NumericUpDown();
             this.tracklistDataGrid = new System.Windows.Forms.DataGridView();
             this.MainLayout.SuspendLayout();
             this.fileBrowserGroupBox.SuspendLayout();
@@ -49,10 +49,10 @@
             this.infoLayout.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.timeSignatureLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tsDenominator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsNumerator)).BeginInit();
             this.tempoGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tempoUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tsDenominator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracklistDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -188,6 +188,30 @@
             this.timeSignatureLayout.Size = new System.Drawing.Size(108, 23);
             this.timeSignatureLayout.TabIndex = 0;
             // 
+            // tsDenominator
+            // 
+            this.tsDenominator.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tsDenominator.Location = new System.Drawing.Point(64, 3);
+            this.tsDenominator.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.tsDenominator.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tsDenominator.Name = "tsDenominator";
+            this.tsDenominator.Size = new System.Drawing.Size(41, 22);
+            this.tsDenominator.TabIndex = 2;
+            this.tsDenominator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tsDenominator.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            // 
             // tsSlashLabel
             // 
             this.tsSlashLabel.AutoSize = true;
@@ -259,36 +283,16 @@
             0,
             0});
             // 
-            // tsDenominator
-            // 
-            this.tsDenominator.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tsDenominator.Location = new System.Drawing.Point(64, 3);
-            this.tsDenominator.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.tsDenominator.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.tsDenominator.Name = "tsDenominator";
-            this.tsDenominator.Size = new System.Drawing.Size(41, 22);
-            this.tsDenominator.TabIndex = 2;
-            this.tsDenominator.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tsDenominator.Value = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            // 
             // tracklistDataGrid
             // 
+            this.tracklistDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.tracklistDataGrid.BackgroundColor = System.Drawing.Color.White;
             this.tracklistDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tracklistDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tracklistDataGrid.GridColor = System.Drawing.Color.DarkSlateBlue;
             this.tracklistDataGrid.Location = new System.Drawing.Point(3, 103);
             this.tracklistDataGrid.Name = "tracklistDataGrid";
+            this.tracklistDataGrid.RowHeadersVisible = false;
             this.tracklistDataGrid.Size = new System.Drawing.Size(1258, 545);
             this.tracklistDataGrid.TabIndex = 4;
             // 
@@ -313,10 +317,10 @@
             this.groupBox1.ResumeLayout(false);
             this.timeSignatureLayout.ResumeLayout(false);
             this.timeSignatureLayout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tsDenominator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tsNumerator)).EndInit();
             this.tempoGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tempoUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tsDenominator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracklistDataGrid)).EndInit();
             this.ResumeLayout(false);
 

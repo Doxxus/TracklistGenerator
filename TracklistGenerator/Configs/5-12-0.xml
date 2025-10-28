@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AbletonProjectConfig>
+	<TempoXPath>Ableton/LiveSet/MainTrack/DeviceChain/Mixer/Tempo/Manual</TempoXPath>
+	<AudioTrackName>AudioTrack</AudioTrackName>
+	<AudioClipXPath>DeviceChain/MainSequencer/Sample/ArrangerAutomation/Events/AudioClip</AudioClipXPath>
+	<ClipName>Name</ClipName>
+	<ClipCurrentStart>CurrentStart</ClipCurrentStart>
+	<ClipCurrentEnd>CurrentEnd</ClipCurrentEnd>
+</AbletonProjectConfig>
