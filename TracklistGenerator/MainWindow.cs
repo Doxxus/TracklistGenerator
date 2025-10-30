@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
@@ -24,7 +25,7 @@ namespace TracklistGenerator
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Filter = "Ableton Project|*.als|XML File|*.xml";
+                ofd.Filter = "Ableton Project|*.als|XML File|*.xml|JSON|*.json";
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
@@ -33,7 +34,19 @@ namespace TracklistGenerator
 
                     Task.Factory.StartNew(async () =>
                     {
-                        tracklist = await ProjectFileParser.GetTracklistFromProject(fileTextBox.Text);
+                        switch (ofd.FileName.Substring(ofd.FileName.LastIndexOf('.')))
+                        {
+                            case ".als":
+                                tracklist = await FileParser.GetTracklistFromProject(ofd.FileName);
+                                break;
+                            case ".json":
+
+                                break;
+                            case ".xml":
+                                MessageBox.Show("XML files aren't supported yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                break;
+                        }
+
                         Invoke(new MethodInvoker(delegate
                         {
                             tracklistDataGrid.DataSource = tracklist;
@@ -52,7 +65,7 @@ namespace TracklistGenerator
                 return;
             }
 
-            TrackListOperations.Sort(ref tracklist);
+            tracklist.SortTracklist();
             tracklistDataGrid.DataSource = tracklist;
             tracklistDataGrid.Refresh();
         }
@@ -66,8 +79,7 @@ namespace TracklistGenerator
                 return;
             }
 
-            TrackListOperations.CombineAllDuplicates(ref tracklist);
-            tracklistDataGrid.DataSource = tracklist;
+            tracklistDataGrid.DataSource = tracklist.CombineAllDuplicates();
             tracklistDataGrid.Refresh();
         }
 

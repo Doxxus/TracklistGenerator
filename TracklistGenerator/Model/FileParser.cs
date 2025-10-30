@@ -11,7 +11,7 @@ using SharpCompress.Compressors;
 
 namespace TracklistGenerator.Model
 {
-    public static class ProjectFileParser
+    public static class FileParser
     {
         public static async Task<List<Track>> GetTracklistFromProject(string project_file_path, int given_tempo = -1)
         {
