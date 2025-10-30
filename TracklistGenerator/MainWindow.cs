@@ -86,6 +86,20 @@ namespace TracklistGenerator
             tracklistDataGrid.Refresh();
         }
 
+        private void zeroTracklistButton_Click(object sender, EventArgs e)
+        {
+            List<Track> tracklist = tracklistDataGrid.DataSource as List<Track>;
+            if (tracklist == null)
+            {
+                MessageBox.Show("Traklist is unavailable.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            tracklist.ZeroTracklist();
+            tracklistDataGrid.DataSource = tracklist;
+            tracklistDataGrid.Refresh();
+        }
+
         private void exportButton_Click(object sender, EventArgs e)
         {
             ExportTracklistDialog etd = new ExportTracklistDialog();

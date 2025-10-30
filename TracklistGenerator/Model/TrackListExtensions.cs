@@ -56,9 +56,18 @@ namespace TracklistGenerator.Model
             return rectified_tracklist;
         }
 
-        public static bool ContainsTrack(this IEnumerable<Track> tracks, Track target)
+        public static void ZeroTracklist(this List<Track> tracklist)
         {
-            return tracks.Any(t => t.GetFullName() == target.GetFullName());
+            if (tracklist.Count == 0) return;
+            tracklist.SortTracklist();
+
+            decimal to_subtract = tracklist[0].start_time;
+
+            foreach (Track track in tracklist)
+            {
+                track.start_time -= to_subtract;
+                track.end_time -= to_subtract;
+            }
         }
 
         public static void SortTracklist(this List<Track> tracklist)
@@ -70,5 +79,10 @@ namespace TracklistGenerator.Model
                 tracklist[i].ChangeId(i + 1);
             }
         }
+
+        public static bool ContainsTrack(this IEnumerable<Track> tracks, Track target)
+        {
+            return tracks.Any(t => t.GetFullName() == target.GetFullName());
+        }      
     }
 }
