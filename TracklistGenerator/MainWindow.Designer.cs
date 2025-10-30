@@ -35,6 +35,8 @@
             this.fileTextBox = new System.Windows.Forms.TextBox();
             this.browseButton = new System.Windows.Forms.Button();
             this.infoLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.sortButton = new System.Windows.Forms.Button();
+            this.rectifyButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.timeSignatureLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tsDenominator = new System.Windows.Forms.NumericUpDown();
@@ -42,10 +44,8 @@
             this.tsNumerator = new System.Windows.Forms.NumericUpDown();
             this.tempoGroupBox = new System.Windows.Forms.GroupBox();
             this.tempoUpDown = new System.Windows.Forms.NumericUpDown();
-            this.tracklistDataGrid = new System.Windows.Forms.DataGridView();
-            this.rectifyButton = new System.Windows.Forms.Button();
-            this.sortButton = new System.Windows.Forms.Button();
             this.sepLabel = new System.Windows.Forms.Label();
+            this.tracklistDataGrid = new System.Windows.Forms.DataGridView();
             this.MainLayout.SuspendLayout();
             this.fileBrowserGroupBox.SuspendLayout();
             this.fileBrowserLayout.SuspendLayout();
@@ -167,6 +167,36 @@
             this.infoLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.infoLayout.Size = new System.Drawing.Size(1264, 50);
             this.infoLayout.TabIndex = 3;
+            // 
+            // sortButton
+            // 
+            this.sortButton.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.sortButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sortButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.sortButton.ForeColor = System.Drawing.Color.White;
+            this.sortButton.Location = new System.Drawing.Point(228, 5);
+            this.sortButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.sortButton.Name = "sortButton";
+            this.sortButton.Size = new System.Drawing.Size(94, 40);
+            this.sortButton.TabIndex = 3;
+            this.sortButton.Text = "Sort Tracklist";
+            this.sortButton.UseVisualStyleBackColor = false;
+            this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
+            // 
+            // rectifyButton
+            // 
+            this.rectifyButton.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.rectifyButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rectifyButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rectifyButton.ForeColor = System.Drawing.Color.White;
+            this.rectifyButton.Location = new System.Drawing.Point(328, 5);
+            this.rectifyButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.rectifyButton.Name = "rectifyButton";
+            this.rectifyButton.Size = new System.Drawing.Size(94, 40);
+            this.rectifyButton.TabIndex = 2;
+            this.rectifyButton.Text = "Combine All Duplicates";
+            this.rectifyButton.UseVisualStyleBackColor = false;
+            this.rectifyButton.Click += new System.EventHandler(this.rectifyButton_Click);
             // 
             // groupBox1
             // 
@@ -292,6 +322,17 @@
             0,
             0});
             // 
+            // sepLabel
+            // 
+            this.sepLabel.AutoSize = true;
+            this.sepLabel.BackColor = System.Drawing.Color.Black;
+            this.sepLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sepLabel.Location = new System.Drawing.Point(220, 0);
+            this.sepLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.sepLabel.Name = "sepLabel";
+            this.sepLabel.Size = new System.Drawing.Size(5, 50);
+            this.sepLabel.TabIndex = 4;
+            // 
             // tracklistDataGrid
             // 
             this.tracklistDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
@@ -304,47 +345,6 @@
             this.tracklistDataGrid.RowHeadersVisible = false;
             this.tracklistDataGrid.Size = new System.Drawing.Size(1258, 545);
             this.tracklistDataGrid.TabIndex = 4;
-            // 
-            // rectifyButton
-            // 
-            this.rectifyButton.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.rectifyButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rectifyButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rectifyButton.ForeColor = System.Drawing.Color.White;
-            this.rectifyButton.Location = new System.Drawing.Point(328, 5);
-            this.rectifyButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.rectifyButton.Name = "rectifyButton";
-            this.rectifyButton.Size = new System.Drawing.Size(94, 40);
-            this.rectifyButton.TabIndex = 2;
-            this.rectifyButton.Text = "Combine All Duplicates";
-            this.rectifyButton.UseVisualStyleBackColor = false;
-            this.rectifyButton.Click += new System.EventHandler(this.rectifyButton_Click);
-            // 
-            // sortButton
-            // 
-            this.sortButton.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.sortButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sortButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.sortButton.ForeColor = System.Drawing.Color.White;
-            this.sortButton.Location = new System.Drawing.Point(228, 5);
-            this.sortButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.sortButton.Name = "sortButton";
-            this.sortButton.Size = new System.Drawing.Size(94, 40);
-            this.sortButton.TabIndex = 3;
-            this.sortButton.Text = "Sort Tracklist";
-            this.sortButton.UseVisualStyleBackColor = false;
-            this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
-            // 
-            // sepLabel
-            // 
-            this.sepLabel.AutoSize = true;
-            this.sepLabel.BackColor = System.Drawing.Color.Black;
-            this.sepLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sepLabel.Location = new System.Drawing.Point(220, 0);
-            this.sepLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.sepLabel.Name = "sepLabel";
-            this.sepLabel.Size = new System.Drawing.Size(5, 50);
-            this.sepLabel.TabIndex = 4;
             // 
             // MainWindow
             // 

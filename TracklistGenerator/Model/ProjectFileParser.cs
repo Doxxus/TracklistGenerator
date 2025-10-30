@@ -35,7 +35,7 @@ namespace TracklistGenerator.Model
                 AbletonProjectConfig config = ConfigurationManager.DeserializeConfig(ConfigurationManager.DetermineFilePath(major_verson, minor_version));
 
                 int tempo = (given_tempo == -1 ? int.Parse(project_xml.SelectSingleNode(config.tempo_xpath).Attributes[0].Value.ToString()) : given_tempo);
-                int i = 0;
+                int i = 1;
 
                 foreach (XmlNode track in project_xml.GetElementsByTagName(config.audio_track_name))
                 {

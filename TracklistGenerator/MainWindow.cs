@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TracklistGenerator.Dialogs;
 using TracklistGenerator.Model;
 
 namespace TracklistGenerator
@@ -71,7 +73,31 @@ namespace TracklistGenerator
 
         private void exportButton_Click(object sender, EventArgs e)
         {
+            ExportTracklistDialog etd = new ExportTracklistDialog();
 
+            if (etd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    SaveFileDialog sfd = new SaveFileDialog();
+                    sfd.Filter = "JSON|*.json";
+                    sfd.DefaultExt = "json";
+
+                    if (sfd.ShowDialog() != DialogResult.OK) MessageBox.Show("Nothing to export.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    etd.GetOutputs(out int id, out string name, out string track_id_identifier, out string track_artist_identifier, out string track_title_identifier, out string start_time_identifier, out string end_time_identifier);
+                    List<Track> tracks = tracklistDataGrid.DataSource as List<Track>;
+
+                    if (tracks == null) throw new Exception("Datasource is null.");
+
+                    Tracklist tracklist = new Tracklist(id, name, track_id_identifier, track_artist_identifier, track_title_identifier, start_time_identifier, end_time_identifier, tracks);
+                    tracklist.ExportJson(sfd.FileName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Cannot export: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

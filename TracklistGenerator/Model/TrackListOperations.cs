@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,7 +15,7 @@ namespace TracklistGenerator.Model
 
             for (int i = 0; i < tracklist.Count; i++) 
             {
-                tracklist[i].ChangeId(i);
+                tracklist[i].ChangeId(i + 1);
             }
         }
 
@@ -59,8 +60,15 @@ namespace TracklistGenerator.Model
                 }
             }
 
+            if (!rectified_tracklist.ContainsTrack(tracklist[tracklist.Count - 1])) rectified_tracklist.Add(tracklist[tracklist.Count - 1]);
+
             Sort(ref rectified_tracklist);
             tracklist = rectified_tracklist;
+        }
+
+        public static bool ContainsTrack(this IEnumerable<Track> tracks, Track target)
+        {
+            return tracks.Any(t => t.GetFullName() == target.GetFullName());
         }
     }
 }

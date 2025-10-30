@@ -82,6 +82,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogs\ExportTracklistDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ExportTracklistDialog.Designer.cs">
+      <DependentUpon>ExportTracklistDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\AbletonProjectConfig.cs" />
     <Compile Include="Model\ConfigurationManager.cs" />
     <Compile Include="MainWindow.cs">
@@ -92,9 +98,13 @@
     </Compile>
     <Compile Include="Model\ProjectFileParser.cs" />
     <Compile Include="Model\Track.cs" />
+    <Compile Include="Model\Tracklist.cs" />
     <Compile Include="Model\TrackListOperations.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialogs\ExportTracklistDialog.resx">
+      <DependentUpon>ExportTracklistDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
