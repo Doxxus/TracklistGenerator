@@ -7,22 +7,12 @@ using System.Threading.Tasks;
 
 namespace TracklistGenerator.Model
 {
-    public static class TrackListOperations
+    public static class TracklistExtensions
     {
-        public static void Sort(ref List<Track> tracklist)
-        {
-            tracklist.Sort((a, b) => a.start_time.CompareTo(b.start_time));
-
-            for (int i = 0; i < tracklist.Count; i++) 
-            {
-                tracklist[i].ChangeId(i + 1);
-            }
-        }
-
-        public static void CombineAllDuplicates(ref List<Track> tracklist)
+        public static List<Track> CombineAllDuplicates(this List<Track> tracklist)
         {
             List<Track> rectified_tracklist = new List<Track>();
-            Sort(ref tracklist);
+            tracklist.SortTracklist();
 
             List<int> ids_to_skip = new List<int>();
 
@@ -62,13 +52,23 @@ namespace TracklistGenerator.Model
 
             if (!rectified_tracklist.ContainsTrack(tracklist[tracklist.Count - 1])) rectified_tracklist.Add(tracklist[tracklist.Count - 1]);
 
-            Sort(ref rectified_tracklist);
-            tracklist = rectified_tracklist;
+            rectified_tracklist.SortTracklist();
+            return rectified_tracklist;
         }
 
         public static bool ContainsTrack(this IEnumerable<Track> tracks, Track target)
         {
             return tracks.Any(t => t.GetFullName() == target.GetFullName());
+        }
+
+        public static void SortTracklist(this List<Track> tracklist)
+        {
+            tracklist.Sort((a, b) => a.start_time.CompareTo(b.start_time));
+
+            for (int i = 0; i < tracklist.Count; i++)
+            {
+                tracklist[i].ChangeId(i + 1);
+            }
         }
     }
 }

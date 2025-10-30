@@ -96,10 +96,10 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\ProjectFileParser.cs" />
+    <Compile Include="Model\FileParser.cs" />
     <Compile Include="Model\Track.cs" />
     <Compile Include="Model\Tracklist.cs" />
-    <Compile Include="Model\TrackListOperations.cs" />
+    <Compile Include="Model\TrackListExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Dialogs\ExportTracklistDialog.resx">
