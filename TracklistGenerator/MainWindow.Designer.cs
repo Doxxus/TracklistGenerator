@@ -46,6 +46,7 @@
             this.tempoUpDown = new System.Windows.Forms.NumericUpDown();
             this.sepLabel = new System.Windows.Forms.Label();
             this.tracklistDataGrid = new System.Windows.Forms.DataGridView();
+            this.zeroTracklistButton = new System.Windows.Forms.Button();
             this.MainLayout.SuspendLayout();
             this.fileBrowserGroupBox.SuspendLayout();
             this.fileBrowserLayout.SuspendLayout();
@@ -147,13 +148,15 @@
             // 
             // infoLayout
             // 
-            this.infoLayout.ColumnCount = 6;
+            this.infoLayout.ColumnCount = 7;
             this.infoLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.infoLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.infoLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
             this.infoLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.infoLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.infoLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.infoLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.infoLayout.Controls.Add(this.zeroTracklistButton, 5, 0);
             this.infoLayout.Controls.Add(this.sortButton, 3, 0);
             this.infoLayout.Controls.Add(this.rectifyButton, 4, 0);
             this.infoLayout.Controls.Add(this.groupBox1, 1, 0);
@@ -346,6 +349,21 @@
             this.tracklistDataGrid.Size = new System.Drawing.Size(1258, 545);
             this.tracklistDataGrid.TabIndex = 4;
             // 
+            // zeroTracklistButton
+            // 
+            this.zeroTracklistButton.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.zeroTracklistButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.zeroTracklistButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.zeroTracklistButton.ForeColor = System.Drawing.Color.White;
+            this.zeroTracklistButton.Location = new System.Drawing.Point(428, 5);
+            this.zeroTracklistButton.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.zeroTracklistButton.Name = "zeroTracklistButton";
+            this.zeroTracklistButton.Size = new System.Drawing.Size(94, 40);
+            this.zeroTracklistButton.TabIndex = 5;
+            this.zeroTracklistButton.Text = "Align Tracklist Start";
+            this.zeroTracklistButton.UseVisualStyleBackColor = false;
+            this.zeroTracklistButton.Click += new System.EventHandler(this.zeroTracklistButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -397,5 +415,6 @@
         private System.Windows.Forms.Button sortButton;
         private System.Windows.Forms.Button rectifyButton;
         private System.Windows.Forms.Label sepLabel;
+        private System.Windows.Forms.Button zeroTracklistButton;
     }
 }
