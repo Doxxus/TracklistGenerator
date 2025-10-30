@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using SharpCompress.Compressors.Deflate;
 using SharpCompress.Compressors;
+using Newtonsoft.Json;
 
 namespace TracklistGenerator.Model
 {
@@ -43,6 +44,30 @@ namespace TracklistGenerator.Model
                     {
                         tracklist.Add(ParseTrack(audio_clip, config, tempo, i));
                         i++;
+                    }
+                }
+            });
+
+            return tracklist;
+        }
+
+        public static async Task<List<Track>> GetTracklistFromJson(string json_file_path)
+        {
+            List<Track> tracklist = new List<Track>();
+
+            await Task.Factory.StartNew(() =>
+            {
+                using (FileStream input = File.OpenRead(json_file_path))
+                using (StreamReader reader = new StreamReader(input))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        string line = reader.ReadLine();
+                        if (!line.StartsWith("\t\t")) continue;
+
+                        string cleaned_line = line.TrimStart('\t').TrimEnd('\n').TrimEnd(',');
+                        Track track = JsonConvert.DeserializeObject<Track>(cleaned_line);
+                        tracklist.Add(track);
                     }
                 }
             });

@@ -25,7 +25,7 @@ namespace TracklistGenerator
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Filter = "Ableton Project|*.als|XML File|*.xml|JSON|*.json";
+                ofd.Filter = "All Files|*.*|Ableton Project|*.als|XML File|*.xml|JSON|*.json";
 
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
@@ -40,10 +40,13 @@ namespace TracklistGenerator
                                 tracklist = await FileParser.GetTracklistFromProject(ofd.FileName);
                                 break;
                             case ".json":
-
+                                tracklist = await FileParser.GetTracklistFromJson(ofd.FileName);
                                 break;
                             case ".xml":
                                 MessageBox.Show("XML files aren't supported yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                break;
+                            default:
+                                MessageBox.Show("Unsupported file type.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                         }
 
@@ -103,7 +106,7 @@ namespace TracklistGenerator
                     if (tracks == null) throw new Exception("Datasource is null.");
 
                     Tracklist tracklist = new Tracklist(id, name, track_id_identifier, track_artist_identifier, track_title_identifier, start_time_identifier, end_time_identifier, tracks);
-                    tracklist.ExportJson(sfd.FileName);
+                    if (tracklist.ExportJson(sfd.FileName)) MessageBox.Show($"Successfully exported tracklist to {sfd.FileName}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
