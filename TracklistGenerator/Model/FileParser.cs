@@ -14,6 +14,12 @@ namespace TracklistGenerator.Model
 {
     public static class FileParser
     {
+        /// <summary>
+        /// Async method to parse out a List of Track objects from a given Ableton project filepath.
+        /// </summary>
+        /// <param name="project_file_path">The path to the Ableton project file.</param>
+        /// <param name="given_tempo">The given temp to parse the tracklist as (needs to convert the beat information to time in seconds based on the time signature and bpm.</param>
+        /// <returns></returns>
         public static async Task<List<Track>> GetTracklistFromProject(string project_file_path, int given_tempo = -1)
         {
             List<Track> tracklist = new List<Track>();
