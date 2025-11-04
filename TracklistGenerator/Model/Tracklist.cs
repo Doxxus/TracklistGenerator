@@ -48,6 +48,11 @@ namespace TracklistGenerator.Model
             this.tracks = tracks;
         }
 
+        /// <summary>
+        /// Exports the tracklist object to a specific JSON format.
+        /// </summary>
+        /// <param name="file_path"></param>
+        /// <returns></returns>
         public bool ExportJson(string file_path)
         {
             try
@@ -59,11 +64,15 @@ namespace TracklistGenerator.Model
                 sb.AppendLine($"\t\"name\": \"{name} Tracklist\",");
                 sb.AppendLine("\t\"tracks\": [");
 
+                int i = 0;
                 foreach (Track track in tracks)
                 {
                     sb.Append("\t\t{");
                     sb.Append($"\"{track_id_json_string}\": {track.id}, \"{track_artist_json_string}\": \"{track.artist}\", \"{track_title_json_string}\": \"{track.title}\", \"{track_start_time_json_string}\": {track.start_time}, \"{track_end_time_json_string}\": {track.end_time}");
-                    sb.AppendLine("},");
+                    
+                    i++;
+                    if (i < tracks.Count) sb.AppendLine("},");
+                    else sb.AppendLine("}");
                 }
 
                 sb.AppendLine("]}");

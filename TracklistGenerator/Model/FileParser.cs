@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using SharpCompress.Compressors.Deflate;
@@ -12,6 +10,9 @@ using Newtonsoft.Json;
 
 namespace TracklistGenerator.Model
 {
+    /// <summary>
+    /// Static class to parse various file types into lists of Track objects.
+    /// </summary>
     public static class FileParser
     {
         /// <summary>
@@ -57,6 +58,11 @@ namespace TracklistGenerator.Model
             return tracklist;
         }
 
+        /// <summary>
+        /// Asyn method for obtaining a List of Track objects from an already built JSON tracklist file.
+        /// </summary>
+        /// <param name="json_file_path"></param>
+        /// <returns></returns>
         public static async Task<List<Track>> GetTracklistFromJson(string json_file_path)
         {
             List<Track> tracklist = new List<Track>();
@@ -81,6 +87,14 @@ namespace TracklistGenerator.Model
             return tracklist;
         }
 
+        /// <summary>
+        /// Parses a given XML note into a Track object based on a given AbletonProjectConfig.
+        /// </summary>
+        /// <param name="audio_clip"></param>
+        /// <param name="config"></param>
+        /// <param name="tempo"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private static Track ParseTrack(XmlNode audio_clip, AbletonProjectConfig config, int tempo, int id)
         {
             string full_track_name = audio_clip.SelectSingleNode(config.clip_name).Attributes[0].Value.ToString();
@@ -92,6 +106,12 @@ namespace TracklistGenerator.Model
             return new Track(id, track_parts.Length > 0 ? track_parts[0] : string.Empty, track_parts.Length > 1 ? track_parts[1] : string.Empty, start_time, end_time);
         }
 
+        /// <summary>
+        /// Converts a beat value into a seconds value.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="bpm"></param>
+        /// <returns></returns>
         private static decimal BeatsToSeconds(decimal value, int bpm)
         {
             return Decimal.Round((value / bpm) * 60, 0);
