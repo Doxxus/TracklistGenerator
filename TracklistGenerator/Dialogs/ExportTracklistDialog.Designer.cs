@@ -28,36 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExportTracklistDialog));
             this.mainLayout = new System.Windows.Forms.TableLayoutPanel();
             this.cancelButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tracklistIDTextBox = new System.Windows.Forms.TextBox();
-            this.idLabel = new System.Windows.Forms.Label();
-            this.tracklistNameTextBox = new System.Windows.Forms.TextBox();
             this.tracklistNameGroupBox = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tracklistNameTextBox = new System.Windows.Forms.TextBox();
+            this.idLabel = new System.Windows.Forms.Label();
+            this.tracklistIDTextBox = new System.Windows.Forms.TextBox();
             this.jsonIdentifierGroupBox = new System.Windows.Forms.GroupBox();
             this.jsonIdentifierLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.trackIdGroupBox = new System.Windows.Forms.GroupBox();
-            this.trackIdTextBox = new System.Windows.Forms.TextBox();
-            this.artistGroupBox = new System.Windows.Forms.GroupBox();
-            this.artistTextBox = new System.Windows.Forms.TextBox();
-            this.trackTitleGroupBox = new System.Windows.Forms.GroupBox();
-            this.trackTitleTextBox = new System.Windows.Forms.TextBox();
-            this.startTimeGroupBox = new System.Windows.Forms.GroupBox();
-            this.startTimeTextBox = new System.Windows.Forms.TextBox();
             this.endTimeGroupBox = new System.Windows.Forms.GroupBox();
             this.endTimeTextBox = new System.Windows.Forms.TextBox();
+            this.startTimeGroupBox = new System.Windows.Forms.GroupBox();
+            this.startTimeTextBox = new System.Windows.Forms.TextBox();
+            this.trackTitleGroupBox = new System.Windows.Forms.GroupBox();
+            this.trackTitleTextBox = new System.Windows.Forms.TextBox();
+            this.artistGroupBox = new System.Windows.Forms.GroupBox();
+            this.artistTextBox = new System.Windows.Forms.TextBox();
+            this.trackIdGroupBox = new System.Windows.Forms.GroupBox();
+            this.trackIdTextBox = new System.Windows.Forms.TextBox();
             this.mainLayout.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.tracklistNameGroupBox.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.jsonIdentifierGroupBox.SuspendLayout();
             this.jsonIdentifierLayout.SuspendLayout();
-            this.trackIdGroupBox.SuspendLayout();
-            this.artistGroupBox.SuspendLayout();
-            this.trackTitleGroupBox.SuspendLayout();
-            this.startTimeGroupBox.SuspendLayout();
             this.endTimeGroupBox.SuspendLayout();
+            this.startTimeGroupBox.SuspendLayout();
+            this.trackTitleGroupBox.SuspendLayout();
+            this.artistGroupBox.SuspendLayout();
+            this.trackIdGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainLayout
@@ -111,6 +112,18 @@
             this.okButton.UseVisualStyleBackColor = false;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
+            // tracklistNameGroupBox
+            // 
+            this.mainLayout.SetColumnSpan(this.tracklistNameGroupBox, 3);
+            this.tracklistNameGroupBox.Controls.Add(this.tableLayoutPanel1);
+            this.tracklistNameGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tracklistNameGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.tracklistNameGroupBox.Name = "tracklistNameGroupBox";
+            this.tracklistNameGroupBox.Size = new System.Drawing.Size(778, 44);
+            this.tracklistNameGroupBox.TabIndex = 0;
+            this.tracklistNameGroupBox.TabStop = false;
+            this.tracklistNameGroupBox.Text = "Tracklist Name";
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
@@ -129,16 +142,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(772, 23);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // tracklistIDTextBox
+            // tracklistNameTextBox
             // 
-            this.tracklistIDTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tracklistIDTextBox.Location = new System.Drawing.Point(33, 1);
-            this.tracklistIDTextBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-            this.tracklistIDTextBox.Name = "tracklistIDTextBox";
-            this.tracklistIDTextBox.Size = new System.Drawing.Size(24, 22);
-            this.tracklistIDTextBox.TabIndex = 1;
-            this.tracklistIDTextBox.Text = "1";
-            this.tracklistIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tracklistNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tracklistNameTextBox.Location = new System.Drawing.Point(63, 1);
+            this.tracklistNameTextBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            this.tracklistNameTextBox.Name = "tracklistNameTextBox";
+            this.tracklistNameTextBox.Size = new System.Drawing.Size(706, 22);
+            this.tracklistNameTextBox.TabIndex = 2;
+            this.tracklistNameTextBox.Text = "Tracklist Name";
             // 
             // idLabel
             // 
@@ -151,27 +163,16 @@
             this.idLabel.Text = "ID:";
             this.idLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tracklistNameTextBox
+            // tracklistIDTextBox
             // 
-            this.tracklistNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tracklistNameTextBox.Location = new System.Drawing.Point(63, 1);
-            this.tracklistNameTextBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
-            this.tracklistNameTextBox.Name = "tracklistNameTextBox";
-            this.tracklistNameTextBox.Size = new System.Drawing.Size(706, 22);
-            this.tracklistNameTextBox.TabIndex = 2;
-            this.tracklistNameTextBox.Text = "Tracklist Name";
-            // 
-            // tracklistNameGroupBox
-            // 
-            this.mainLayout.SetColumnSpan(this.tracklistNameGroupBox, 3);
-            this.tracklistNameGroupBox.Controls.Add(this.tableLayoutPanel1);
-            this.tracklistNameGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tracklistNameGroupBox.Location = new System.Drawing.Point(3, 3);
-            this.tracklistNameGroupBox.Name = "tracklistNameGroupBox";
-            this.tracklistNameGroupBox.Size = new System.Drawing.Size(778, 44);
-            this.tracklistNameGroupBox.TabIndex = 0;
-            this.tracklistNameGroupBox.TabStop = false;
-            this.tracklistNameGroupBox.Text = "Tracklist Name";
+            this.tracklistIDTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tracklistIDTextBox.Location = new System.Drawing.Point(33, 1);
+            this.tracklistIDTextBox.Margin = new System.Windows.Forms.Padding(3, 1, 3, 3);
+            this.tracklistIDTextBox.Name = "tracklistIDTextBox";
+            this.tracklistIDTextBox.Size = new System.Drawing.Size(24, 22);
+            this.tracklistIDTextBox.TabIndex = 1;
+            this.tracklistIDTextBox.Text = "1";
+            this.tracklistIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // jsonIdentifierGroupBox
             // 
@@ -207,65 +208,25 @@
             this.jsonIdentifierLayout.Size = new System.Drawing.Size(772, 53);
             this.jsonIdentifierLayout.TabIndex = 0;
             // 
-            // trackIdGroupBox
+            // endTimeGroupBox
             // 
-            this.trackIdGroupBox.Controls.Add(this.trackIdTextBox);
-            this.trackIdGroupBox.Location = new System.Drawing.Point(3, 3);
-            this.trackIdGroupBox.Name = "trackIdGroupBox";
-            this.trackIdGroupBox.Size = new System.Drawing.Size(148, 47);
-            this.trackIdGroupBox.TabIndex = 0;
-            this.trackIdGroupBox.TabStop = false;
-            this.trackIdGroupBox.Text = "Track ID";
+            this.endTimeGroupBox.Controls.Add(this.endTimeTextBox);
+            this.endTimeGroupBox.Location = new System.Drawing.Point(619, 3);
+            this.endTimeGroupBox.Name = "endTimeGroupBox";
+            this.endTimeGroupBox.Size = new System.Drawing.Size(148, 47);
+            this.endTimeGroupBox.TabIndex = 4;
+            this.endTimeGroupBox.TabStop = false;
+            this.endTimeGroupBox.Text = "End Time";
             // 
-            // trackIdTextBox
+            // endTimeTextBox
             // 
-            this.trackIdTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackIdTextBox.Location = new System.Drawing.Point(3, 18);
-            this.trackIdTextBox.Name = "trackIdTextBox";
-            this.trackIdTextBox.Size = new System.Drawing.Size(142, 22);
-            this.trackIdTextBox.TabIndex = 0;
-            this.trackIdTextBox.Text = "id";
-            this.trackIdTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // artistGroupBox
-            // 
-            this.artistGroupBox.Controls.Add(this.artistTextBox);
-            this.artistGroupBox.Location = new System.Drawing.Point(157, 3);
-            this.artistGroupBox.Name = "artistGroupBox";
-            this.artistGroupBox.Size = new System.Drawing.Size(148, 47);
-            this.artistGroupBox.TabIndex = 1;
-            this.artistGroupBox.TabStop = false;
-            this.artistGroupBox.Text = "Artist";
-            // 
-            // artistTextBox
-            // 
-            this.artistTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.artistTextBox.Location = new System.Drawing.Point(3, 18);
-            this.artistTextBox.Name = "artistTextBox";
-            this.artistTextBox.Size = new System.Drawing.Size(142, 22);
-            this.artistTextBox.TabIndex = 0;
-            this.artistTextBox.Text = "artist";
-            this.artistTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // trackTitleGroupBox
-            // 
-            this.trackTitleGroupBox.Controls.Add(this.trackTitleTextBox);
-            this.trackTitleGroupBox.Location = new System.Drawing.Point(311, 3);
-            this.trackTitleGroupBox.Name = "trackTitleGroupBox";
-            this.trackTitleGroupBox.Size = new System.Drawing.Size(148, 47);
-            this.trackTitleGroupBox.TabIndex = 2;
-            this.trackTitleGroupBox.TabStop = false;
-            this.trackTitleGroupBox.Text = "Title";
-            // 
-            // trackTitleTextBox
-            // 
-            this.trackTitleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trackTitleTextBox.Location = new System.Drawing.Point(3, 18);
-            this.trackTitleTextBox.Name = "trackTitleTextBox";
-            this.trackTitleTextBox.Size = new System.Drawing.Size(142, 22);
-            this.trackTitleTextBox.TabIndex = 0;
-            this.trackTitleTextBox.Text = "title";
-            this.trackTitleTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.endTimeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.endTimeTextBox.Location = new System.Drawing.Point(3, 18);
+            this.endTimeTextBox.Name = "endTimeTextBox";
+            this.endTimeTextBox.Size = new System.Drawing.Size(142, 22);
+            this.endTimeTextBox.TabIndex = 0;
+            this.endTimeTextBox.Text = "end_time";
+            this.endTimeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // startTimeGroupBox
             // 
@@ -287,25 +248,65 @@
             this.startTimeTextBox.Text = "start_time";
             this.startTimeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // endTimeGroupBox
+            // trackTitleGroupBox
             // 
-            this.endTimeGroupBox.Controls.Add(this.endTimeTextBox);
-            this.endTimeGroupBox.Location = new System.Drawing.Point(619, 3);
-            this.endTimeGroupBox.Name = "endTimeGroupBox";
-            this.endTimeGroupBox.Size = new System.Drawing.Size(148, 47);
-            this.endTimeGroupBox.TabIndex = 4;
-            this.endTimeGroupBox.TabStop = false;
-            this.endTimeGroupBox.Text = "End Time";
+            this.trackTitleGroupBox.Controls.Add(this.trackTitleTextBox);
+            this.trackTitleGroupBox.Location = new System.Drawing.Point(311, 3);
+            this.trackTitleGroupBox.Name = "trackTitleGroupBox";
+            this.trackTitleGroupBox.Size = new System.Drawing.Size(148, 47);
+            this.trackTitleGroupBox.TabIndex = 2;
+            this.trackTitleGroupBox.TabStop = false;
+            this.trackTitleGroupBox.Text = "Title";
             // 
-            // endTimeTextBox
+            // trackTitleTextBox
             // 
-            this.endTimeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.endTimeTextBox.Location = new System.Drawing.Point(3, 18);
-            this.endTimeTextBox.Name = "endTimeTextBox";
-            this.endTimeTextBox.Size = new System.Drawing.Size(142, 22);
-            this.endTimeTextBox.TabIndex = 0;
-            this.endTimeTextBox.Text = "end_time";
-            this.endTimeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.trackTitleTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trackTitleTextBox.Location = new System.Drawing.Point(3, 18);
+            this.trackTitleTextBox.Name = "trackTitleTextBox";
+            this.trackTitleTextBox.Size = new System.Drawing.Size(142, 22);
+            this.trackTitleTextBox.TabIndex = 0;
+            this.trackTitleTextBox.Text = "title";
+            this.trackTitleTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // artistGroupBox
+            // 
+            this.artistGroupBox.Controls.Add(this.artistTextBox);
+            this.artistGroupBox.Location = new System.Drawing.Point(157, 3);
+            this.artistGroupBox.Name = "artistGroupBox";
+            this.artistGroupBox.Size = new System.Drawing.Size(148, 47);
+            this.artistGroupBox.TabIndex = 1;
+            this.artistGroupBox.TabStop = false;
+            this.artistGroupBox.Text = "Artist";
+            // 
+            // artistTextBox
+            // 
+            this.artistTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.artistTextBox.Location = new System.Drawing.Point(3, 18);
+            this.artistTextBox.Name = "artistTextBox";
+            this.artistTextBox.Size = new System.Drawing.Size(142, 22);
+            this.artistTextBox.TabIndex = 0;
+            this.artistTextBox.Text = "artist";
+            this.artistTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // trackIdGroupBox
+            // 
+            this.trackIdGroupBox.Controls.Add(this.trackIdTextBox);
+            this.trackIdGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.trackIdGroupBox.Name = "trackIdGroupBox";
+            this.trackIdGroupBox.Size = new System.Drawing.Size(148, 47);
+            this.trackIdGroupBox.TabIndex = 0;
+            this.trackIdGroupBox.TabStop = false;
+            this.trackIdGroupBox.Text = "Track ID";
+            // 
+            // trackIdTextBox
+            // 
+            this.trackIdTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trackIdTextBox.Location = new System.Drawing.Point(3, 18);
+            this.trackIdTextBox.Name = "trackIdTextBox";
+            this.trackIdTextBox.Size = new System.Drawing.Size(142, 22);
+            this.trackIdTextBox.TabIndex = 0;
+            this.trackIdTextBox.Text = "id";
+            this.trackIdTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ExportTracklistDialog
             // 
@@ -314,26 +315,27 @@
             this.ClientSize = new System.Drawing.Size(784, 161);
             this.Controls.Add(this.mainLayout);
             this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(800, 200);
             this.Name = "ExportTracklistDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Export Tracklist";
             this.mainLayout.ResumeLayout(false);
+            this.tracklistNameGroupBox.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tracklistNameGroupBox.ResumeLayout(false);
             this.jsonIdentifierGroupBox.ResumeLayout(false);
             this.jsonIdentifierLayout.ResumeLayout(false);
-            this.trackIdGroupBox.ResumeLayout(false);
-            this.trackIdGroupBox.PerformLayout();
-            this.artistGroupBox.ResumeLayout(false);
-            this.artistGroupBox.PerformLayout();
-            this.trackTitleGroupBox.ResumeLayout(false);
-            this.trackTitleGroupBox.PerformLayout();
-            this.startTimeGroupBox.ResumeLayout(false);
-            this.startTimeGroupBox.PerformLayout();
             this.endTimeGroupBox.ResumeLayout(false);
             this.endTimeGroupBox.PerformLayout();
+            this.startTimeGroupBox.ResumeLayout(false);
+            this.startTimeGroupBox.PerformLayout();
+            this.trackTitleGroupBox.ResumeLayout(false);
+            this.trackTitleGroupBox.PerformLayout();
+            this.artistGroupBox.ResumeLayout(false);
+            this.artistGroupBox.PerformLayout();
+            this.trackIdGroupBox.ResumeLayout(false);
+            this.trackIdGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
