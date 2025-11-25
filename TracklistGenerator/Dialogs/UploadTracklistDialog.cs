@@ -39,7 +39,9 @@ namespace TracklistGenerator.Dialogs
 
         private void mixNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            tracklistNameTextBox.Text = mixNameTextBox.Text;
+            tracklistNameTextBox.Text = $"{mixNameTextBox.Text} Tracklist";
+            pathToArtworkTextBox.Text = $@"\Covers\{mixNameTextBox.Text.ToLower()}.jpg";
+            pathToAudioFileTextBox.Text = $@"""D:\Plex Media\Kairo Mixes\Kairo\{mixNameTextBox.Text}\{mixNameTextBox.Text}.mp3""";
         }
 
         private void okButton_Click(object sender, EventArgs e)

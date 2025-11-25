@@ -77,7 +77,7 @@ namespace TracklistGenerator.Model
                         string line = reader.ReadLine();
                         if (!line.StartsWith("\t\t")) continue;
 
-                        string cleaned_line = line.TrimStart('\t').TrimEnd('\n').TrimEnd(',');
+                        string cleaned_line = line.Trim().TrimEnd(',');
                         Track track = JsonConvert.DeserializeObject<Track>(cleaned_line);
                         tracklist.Add(track);
                     }
