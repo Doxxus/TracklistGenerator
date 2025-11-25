@@ -7,10 +7,12 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TracklistGenerator.Dialogs;
 using TracklistGenerator.Model;
+using DoxCom.Database;
 
 namespace TracklistGenerator
 {
@@ -126,6 +128,40 @@ namespace TracklistGenerator
                 {
                     MessageBox.Show($"Cannot export: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void uploadButton_Click(object sender, EventArgs e)
+        {
+            UploadTracklistDialog utd = new UploadTracklistDialog();
+
+            if (utd.ShowDialog() == DialogResult.OK)
+            {
+                string connection_string = ConfigurationManager.GetConnectionString($"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}{Path.DirectorySeparatorChar}connection_config.xml");
+                QueryMarshal qm = new QueryMarshal(connection_string);
+
+                Task.Factory.StartNew(() =>
+                {
+                    Dictionary<string, string> parameters = new Dictionary<string, string>
+                    {
+                        { "@MixName", utd.MixName }
+                    };
+
+                    DataTable mix_data = qm.ExecuteOleDbStoredProcedure("GetMix", parameters);
+
+                    if (mix_data == null || mix_data.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Not Implemented yet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mix already in database, Modification of tracklist not possible yet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }).ContinueWith(taskState =>
+                {
+                    
+                }, TaskScheduler.FromCurrentSynchronizationContext());
             }
         }
     }

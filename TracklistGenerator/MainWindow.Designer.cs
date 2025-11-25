@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.MainLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.exportButton = new System.Windows.Forms.Button();
             this.fileBrowserGroupBox = new System.Windows.Forms.GroupBox();
             this.fileBrowserLayout = new System.Windows.Forms.TableLayoutPanel();
             this.fileTextBox = new System.Windows.Forms.TextBox();
@@ -48,6 +47,9 @@
             this.tempoUpDown = new System.Windows.Forms.NumericUpDown();
             this.sepLabel = new System.Windows.Forms.Label();
             this.tracklistDataGrid = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.exportButton = new System.Windows.Forms.Button();
+            this.uploadButton = new System.Windows.Forms.Button();
             this.MainLayout.SuspendLayout();
             this.fileBrowserGroupBox.SuspendLayout();
             this.fileBrowserLayout.SuspendLayout();
@@ -59,16 +61,17 @@
             this.tempoGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tempoUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracklistDataGrid)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainLayout
             // 
             this.MainLayout.ColumnCount = 1;
             this.MainLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.MainLayout.Controls.Add(this.exportButton, 0, 3);
             this.MainLayout.Controls.Add(this.fileBrowserGroupBox, 0, 0);
             this.MainLayout.Controls.Add(this.infoLayout, 0, 1);
             this.MainLayout.Controls.Add(this.tracklistDataGrid, 0, 2);
+            this.MainLayout.Controls.Add(this.tableLayoutPanel1, 0, 3);
             this.MainLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainLayout.Location = new System.Drawing.Point(0, 0);
             this.MainLayout.Name = "MainLayout";
@@ -79,21 +82,6 @@
             this.MainLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.MainLayout.Size = new System.Drawing.Size(1264, 681);
             this.MainLayout.TabIndex = 0;
-            // 
-            // exportButton
-            // 
-            this.exportButton.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.exportButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exportButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.exportButton.ForeColor = System.Drawing.Color.White;
-            this.exportButton.Location = new System.Drawing.Point(3, 651);
-            this.exportButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.exportButton.Name = "exportButton";
-            this.exportButton.Size = new System.Drawing.Size(1258, 30);
-            this.exportButton.TabIndex = 2;
-            this.exportButton.Text = "Export";
-            this.exportButton.UseVisualStyleBackColor = false;
-            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
             // fileBrowserGroupBox
             // 
@@ -365,6 +353,52 @@
             this.tracklistDataGrid.Size = new System.Drawing.Size(1258, 545);
             this.tracklistDataGrid.TabIndex = 4;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.uploadButton, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.exportButton, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 651);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1264, 30);
+            this.tableLayoutPanel1.TabIndex = 5;
+            // 
+            // exportButton
+            // 
+            this.exportButton.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.exportButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.exportButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.exportButton.ForeColor = System.Drawing.Color.White;
+            this.exportButton.Location = new System.Drawing.Point(3, 0);
+            this.exportButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(626, 30);
+            this.exportButton.TabIndex = 3;
+            this.exportButton.Text = "Export";
+            this.exportButton.UseVisualStyleBackColor = false;
+            // 
+            // uploadButton
+            // 
+            this.uploadButton.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.uploadButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uploadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.uploadButton.ForeColor = System.Drawing.Color.White;
+            this.uploadButton.Location = new System.Drawing.Point(635, 0);
+            this.uploadButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.uploadButton.Name = "uploadButton";
+            this.uploadButton.Size = new System.Drawing.Size(626, 30);
+            this.uploadButton.TabIndex = 4;
+            this.uploadButton.Text = "Upload";
+            this.uploadButton.UseVisualStyleBackColor = false;
+            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -393,6 +427,7 @@
             this.tempoGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tempoUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tracklistDataGrid)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -404,7 +439,6 @@
         private System.Windows.Forms.TableLayoutPanel fileBrowserLayout;
         private System.Windows.Forms.TextBox fileTextBox;
         private System.Windows.Forms.Button browseButton;
-        private System.Windows.Forms.Button exportButton;
         private System.Windows.Forms.TableLayoutPanel infoLayout;
         private System.Windows.Forms.GroupBox tempoGroupBox;
         private System.Windows.Forms.NumericUpDown tempoUpDown;
@@ -418,5 +452,8 @@
         private System.Windows.Forms.Button rectifyButton;
         private System.Windows.Forms.Label sepLabel;
         private System.Windows.Forms.Button zeroTracklistButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button uploadButton;
+        private System.Windows.Forms.Button exportButton;
     }
 }

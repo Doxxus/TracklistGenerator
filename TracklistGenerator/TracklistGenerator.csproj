@@ -97,6 +97,12 @@
     <Compile Include="Dialogs\ExportTracklistDialog.Designer.cs">
       <DependentUpon>ExportTracklistDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\UploadTracklistDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\UploadTracklistDialog.Designer.cs">
+      <DependentUpon>UploadTracklistDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\AbletonProjectConfig.cs" />
     <Compile Include="Model\ConfigurationManager.cs" />
     <Compile Include="MainWindow.cs">
@@ -113,6 +119,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Dialogs\ExportTracklistDialog.resx">
       <DependentUpon>ExportTracklistDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\UploadTracklistDialog.resx">
+      <DependentUpon>UploadTracklistDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
