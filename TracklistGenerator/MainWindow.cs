@@ -142,26 +142,52 @@ namespace TracklistGenerator
 
                 Task.Factory.StartNew(() =>
                 {
-                    Dictionary<string, string> parameters = new Dictionary<string, string>
+                    try
                     {
-                        { "@MixName", utd.MixName }
-                    };
+                        DataTable mix_data = qm.ExecuteOleDbStoredProcedure("GetMix", new Dictionary<string, object> { { "@MixName", utd.MixName } });
 
-                    DataTable mix_data = qm.ExecuteOleDbStoredProcedure("GetMix", parameters);
+                        if (mix_data == null || mix_data.Rows.Count == 0)
+                        {
+                            Dictionary<string, object> parameters = new Dictionary<string, object>
+                            {
+                                { "@MixName", utd.MixName },
+                                { "@ArtworkPath", utd.ArtworkPath },
+                                { "@AudioFilePath", utd.AudioFilePath },
+                            };
 
-                    if (mix_data == null || mix_data.Rows.Count == 0)
-                    {
-                        MessageBox.Show("Not Implemented yet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            qm.ExecuteOleDbStoredProcedure("NewMix", parameters);
+                            DataTable new_mix = qm.ExecuteOleDbStoredProcedure("GetMix", new Dictionary<string, object> { { "@MixName", utd.MixName } });
+                            if (new_mix == null || new_mix.Rows.Count == 0) throw new Exception("Could not retrieve newly created mix.");
+                            int new_mix_id = Convert.ToInt32(new_mix.Rows[0]["MixMasterID"]);
+
+                            parameters = new Dictionary<string, object>
+                            {
+                                { "@MixMasterID", new_mix_id.ToString() },
+                                { "@TracklistName", utd.TracklistName }
+                            };
+
+                            qm.ExecuteOleDbStoredProcedure("NewTracklist", parameters);
+                            DataTable new_tracklist = qm.ExecuteOleDbStoredProcedure("GetTracklistMaster", new Dictionary<string, object> { { "@MixMasterID", new_mix_id.ToString() } });
+                            if (new_tracklist == null || new_tracklist.Rows.Count == 0) throw new Exception("Could not retrieve newly created tracklist.");
+                            int new_tracklist_id = Convert.ToInt32(new_tracklist.Rows[0]["TracklistMasterID"]);
+
+                            List<Track> tracks = tracklistDataGrid.DataSource as List<Track>;
+                            Tracklist tracklist = new Tracklist(new_tracklist_id, utd.TracklistName, "", "", "", "", "", tracks);
+
+                            tracklist.UploadToDatabase(qm);
+
+                            MessageBox.Show("Mix and tracklist successfully uploaded.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            throw new NotImplementedException("Updating existing mixes is not implemented yet.");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Mix already in database, Modification of tracklist not possible yet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Error encountered while uploading tracklist: {ex.Message}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
-                }).ContinueWith(taskState =>
-                {
-                    
-                }, TaskScheduler.FromCurrentSynchronizationContext());
+                });
             }
         }
     }

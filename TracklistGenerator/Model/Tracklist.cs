@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoxCom.Database;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -79,6 +80,35 @@ namespace TracklistGenerator.Model
                 File.WriteAllText(file_path, sb.ToString());
 
                 return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void UploadToDatabase(QueryMarshal qm)
+        {
+            try
+            {
+                Dictionary<string, object> parameters;
+
+                for (int i = 0; i < tracks.Count; i++)
+                {
+                    Track track = tracks[i];
+                    
+                    parameters = new Dictionary<string, object>
+                    {
+                        { "@TracklistMasterID", id },
+                        { "@TrackOrder", i + 1 },
+                        { "@Title", track.title },
+                        { "@Artist", track.artist },
+                        { "@StartTime", track.start_time },
+                        { "@EndTime", track.end_time }
+                    };
+
+                    qm.ExecuteOleDbStoredProcedure("NewTrackDetail", parameters);
+                }
             }
             catch (Exception ex)
             {
