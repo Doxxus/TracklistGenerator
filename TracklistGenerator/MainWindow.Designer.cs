@@ -48,8 +48,8 @@
             this.sepLabel = new System.Windows.Forms.Label();
             this.tracklistDataGrid = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.exportButton = new System.Windows.Forms.Button();
             this.uploadButton = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
             this.MainLayout.SuspendLayout();
             this.fileBrowserGroupBox.SuspendLayout();
             this.fileBrowserLayout.SuspendLayout();
@@ -370,20 +370,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1264, 30);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
-            // exportButton
-            // 
-            this.exportButton.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.exportButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exportButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.exportButton.ForeColor = System.Drawing.Color.White;
-            this.exportButton.Location = new System.Drawing.Point(3, 0);
-            this.exportButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.exportButton.Name = "exportButton";
-            this.exportButton.Size = new System.Drawing.Size(626, 30);
-            this.exportButton.TabIndex = 3;
-            this.exportButton.Text = "Export";
-            this.exportButton.UseVisualStyleBackColor = false;
-            // 
             // uploadButton
             // 
             this.uploadButton.BackColor = System.Drawing.Color.DarkSlateBlue;
@@ -398,6 +384,21 @@
             this.uploadButton.Text = "Upload";
             this.uploadButton.UseVisualStyleBackColor = false;
             this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
+            // 
+            // exportButton
+            // 
+            this.exportButton.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.exportButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.exportButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.exportButton.ForeColor = System.Drawing.Color.White;
+            this.exportButton.Location = new System.Drawing.Point(3, 0);
+            this.exportButton.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(626, 30);
+            this.exportButton.TabIndex = 3;
+            this.exportButton.Text = "Export";
+            this.exportButton.UseVisualStyleBackColor = false;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
             // MainWindow
             // 
